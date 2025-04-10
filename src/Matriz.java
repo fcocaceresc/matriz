@@ -48,6 +48,20 @@ public class Matriz {
         return 0 < filas && 0 < cols;
     }
 
+    public static int[][] operacionCrearMatriz() {
+        boolean isValid;
+        int filas;
+        int cols;
+        do {
+            System.out.println("Ingrese el número de filas");
+            filas = SCANNER.nextInt();
+            System.out.println("Ingrese el número de columnas");
+            cols = SCANNER.nextInt();
+            isValid = validarDimensiones(filas, cols);
+        } while (!isValid);
+        return crearMatriz(filas, cols);
+    }
+
     public static int[][] crearMatriz(int filas, int cols) {
         return new int[filas][cols];
     }
