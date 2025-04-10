@@ -1,5 +1,7 @@
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.Random;
 
 public class Matriz {
     private static final Set<Integer> VALID_OPTIONS = Set.of(1, 2, 3, 4, 5);
@@ -43,37 +45,56 @@ public class Matriz {
         }
     }
 
-    public static void ejecutarOpcion(int option) {
-        switch (option) {
-            case 1:
-                crearMatriz();
-                break;
-            case 2:
-                llenarMatriz();
-                break;
-            case 3:
-                mostrarFila();
-                break;
-            case 4:
-                matrizCero();
-                break;
+    public static boolean validarDimensiones(int filas, int cols) {
+        return 0 < filas && 0 < cols;
+    }
+
+    public static int[][] operacionCrearMatriz() {
+        boolean isValid;
+        int filas;
+        int cols;
+        do {
+            System.out.println("Ingrese el número de filas");
+            filas = SCANNER.nextInt();
+            System.out.println("Ingrese el número de columnas");
+            cols = SCANNER.nextInt();
+            isValid = validarDimensiones(filas, cols);
+        } while (!isValid);
+        return crearMatriz(filas, cols);
+    }
+
+    public static int[][] crearMatriz(int filas, int cols) {
+        return new int[filas][cols];
+    }
+
+    public static int[][] llenarMatriz(int[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                matriz[i][j] = new Random().nextInt(10);
+            }
         }
+        return matriz;
     }
 
-    public static void crearMatriz() {
-        System.out.println("Crear matriz");
+    public static boolean validarFila(int[][] matriz, int fila) {
+        return 0 <= fila && fila < matriz.length;
     }
 
-    public static void llenarMatriz() {
-        System.out.println("Llenar matriz");
+    public static void mostrarFila(int[][] matriz, int fila) {
+        System.out.println(Arrays.toString(matriz[fila]));
     }
 
-    public static void mostrarFila() {
-        System.out.println("Mostrar fila");
-    }
-
-    public static void matrizCero() {
-        System.out.println("Matriz cero");
+    public static boolean matrizCero(int[][] matriz) {
+        double totalElements = matriz.length + matriz[0].length;
+        double zeroCount = 0;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if (matriz[i][j] == 0) {
+                    zeroCount++;
+                }
+            }
+        }
+        return zeroCount / totalElements > 0.5;
     }
 
 }
