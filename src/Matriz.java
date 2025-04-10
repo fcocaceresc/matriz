@@ -16,6 +16,7 @@ public class Matriz {
         do {
             mostrarMenu();
             option = obtenerOpcion();
+            ejecutarOpcion(option);
         } while (option != 5);
     }
 
