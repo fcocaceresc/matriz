@@ -1,5 +1,7 @@
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.Random;
 
 public class Matriz {
     private static final Set<Integer> VALID_OPTIONS = Set.of(1, 2, 3, 4, 5);
@@ -48,6 +50,15 @@ public class Matriz {
 
     public static int[][] crearMatriz(int filas, int cols) {
         return new int[filas][cols];
+    }
+
+    public static int[][] llenarMatriz(int[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                matriz[i][j] = new Random().nextInt(10);
+            }
+        }
+        return matriz;
     }
 
 }
