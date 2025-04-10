@@ -68,4 +68,17 @@ public class Matriz {
         System.out.println(Arrays.toString(matriz[fila]));
     }
 
+    public static boolean matrizCero(int[][] matriz) {
+        double totalElements = matriz.length + matriz[0].length;
+        double zeroCount = 0;
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if (matriz[i][j] == 0) {
+                    zeroCount++;
+                }
+            }
+        }
+        return zeroCount / totalElements > 0.5;
+    }
+
 }
