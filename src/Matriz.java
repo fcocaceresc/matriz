@@ -42,4 +42,8 @@ public class Matriz {
         }
     }
 
+    public static int[][] crearMatriz(int filas, int cols) {
+        return new int[filas][cols];
+    }
+
 }
