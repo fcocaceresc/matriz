@@ -14,6 +14,7 @@ public class Matriz {
         do {
             mostrarMenu();
             option = obtenerOpcion();
+            ejecutarOpcion(option);
         } while (option != 5);
     }
 
@@ -40,6 +41,39 @@ public class Matriz {
                 SCANNER.nextLine();
             }
         }
+    }
+
+    public static void ejecutarOpcion(int option) {
+        switch (option) {
+            case 1:
+                crearMatriz();
+                break;
+            case 2:
+                llenarMatriz();
+                break;
+            case 3:
+                mostrarFila();
+                break;
+            case 4:
+                matrizCero();
+                break;
+        }
+    }
+
+    public static void crearMatriz() {
+        System.out.println("Crear matriz");
+    }
+
+    public static void llenarMatriz() {
+        System.out.println("Llenar matriz");
+    }
+
+    public static void mostrarFila() {
+        System.out.println("Mostrar fila");
+    }
+
+    public static void matrizCero() {
+        System.out.println("Matriz cero");
     }
 
 }
