@@ -42,6 +42,10 @@ public class Matriz {
         }
     }
 
+    public static boolean validarDimensiones(int filas, int cols) {
+        return 0 < filas && 0 < cols;
+    }
+
     public static int[][] crearMatriz(int filas, int cols) {
         return new int[filas][cols];
     }
