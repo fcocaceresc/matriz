@@ -75,10 +75,11 @@ public class Matriz {
         return matriz;
     }
 
+    public static boolean validarFila(int[][] matriz, int fila) {
+        return 0 <= fila && fila < matriz.length;
+    }
+
     public static void mostrarFila(int[][] matriz, int fila) {
-        if (fila < 0 || fila >= matriz.length) {
-            System.out.println("La fila no es válida");
-        }
         System.out.println(Arrays.toString(matriz[fila]));
     }
 
